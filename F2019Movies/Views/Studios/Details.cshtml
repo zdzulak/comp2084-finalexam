@@ -1,0 +1,33 @@
+﻿@model F2019Movies.Models.Studio
+
+@{
+    ViewData["Title"] = "Movie Listings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Movie Listings - @Html.DisplayFor(model => model.Name)</h1>
+
+<div>
+    <h4>Studio</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Studio Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <ul>
+        @foreach (var item in Model.Movie)
+        {
+
+            <li><a asp-controller="Movies" asp-action="Details" asp-route-id="@item.MovieId">@Html.DisplayFor(modelItem => item.Title)</a></li>
+
+        }
+    </ul>
+
+        <a asp-action="Index">Back to List</a>
+</div>

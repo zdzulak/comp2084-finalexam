@@ -1,0 +1,31 @@
+﻿@model IEnumerable<F2019Movies.Models.Studio>
+
+@{
+    ViewData["Title"] = "Movie Studios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Movie Studios</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Studio Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.StudioId">@Html.DisplayFor(modelItem => item.Name)</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
